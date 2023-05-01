@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+    background-color: aqua;
+}
+
+.buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    width: 10rem;
+    gap: 10px;
+
+}
