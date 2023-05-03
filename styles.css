@@ -6,8 +6,15 @@
 
 .buttons{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     width: 10rem;
     gap: 10px;
 
+}
+
+.display{
+    display: grid;
+    height: 5rem;
+    width: 10rem;
+    font-size: 5rem;
 }
