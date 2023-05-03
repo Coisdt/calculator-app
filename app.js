@@ -43,14 +43,13 @@ function calculate(btn) {
     calculation = [];
   } else if (value === "=") {
     displayOnScreen.textContent = eval(joinedCalculation);
-  } 
-  //add back btn
-  else if(value === '<'){
-    displayOnScreen.textContent - value;
-
   }
-  
-  else {
+  //add back btn
+  else if (value === "<") {
+    calculation.pop(value);
+    joinedCalculation = calculation.join("");
+    displayOnScreen.textContent = joinedCalculation;
+  } else {
     calculation.push(value);
     console.log(calculation);
     joinedCalculation = calculation.join("");
