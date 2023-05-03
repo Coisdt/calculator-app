@@ -36,15 +36,23 @@ let joinedCalculation;
 function calculate(btn) {
   // console.log(btn);
   const value = btn.textContent;
-  displayOnScreen.innerHTML = value;
+  displayOnScreen.textContent = value;
   // console.log(value);
   if (value === "CE") {
     displayOnScreen.textContent = " ";
-  } else if (value === "=") {
     calculation = [];
+  } else if (value === "=") {
     displayOnScreen.textContent = eval(joinedCalculation);
-  } else {
+  } 
+  //add back btn
+  else if(value === '<'){
+    displayOnScreen.textContent - value;
+
+  }
+  
+  else {
     calculation.push(value);
+    console.log(calculation);
     joinedCalculation = calculation.join("");
     displayOnScreen.textContent = joinedCalculation;
   }
@@ -53,4 +61,3 @@ function calculate(btn) {
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => calculate(btn));
 });
-
