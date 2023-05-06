@@ -1,59 +1,55 @@
-// const display = document.querySelector(".display");
-// const buttons = document.querySelectorAll(".btn");
-
-// let calculation = [];
-// let joinedCalculation;
-
-// function calculate(btn) {
-//   const value = btn.textContent;
-//   console.log(value);
-//   display.innerHTML = value;
-//   if (value === "=") {
-//     calculation = [];
-//     display.textContent = eval(joinedCalculation);
-//   } else if (value === "CE") {
-//     display.textContent = "";
-//   }
-//   // back btn
-//   else {
-//     calculation.push(value);
-//     joinedCalculation = calculation.join("");
-//     display.textContent = joinedCalculation;
-//   }
-// }
-
-// buttons.forEach((btn) => {
-//   console.log(btn);
-//   btn.addEventListener("click", () => calculate(btn));
-// });
-
 const buttons = document.querySelectorAll(".btn");
-const displayOnScreen = document.querySelector(".display-on-screen");
+const displayMainScreen = document.querySelector(".current-display");
+const displayPrevScreen = document.querySelector(".previous-display");
 
 let calculation = [];
 let joinedCalculation;
+let answer;
 
 function calculate(btn) {
-  // console.log(btn);
-  const value = btn.textContent;
-  displayOnScreen.textContent = value;
-  // console.log(value);
-  if (value === "CE") {
-    displayOnScreen.textContent = " ";
-    calculation = [];
-  } else if (value === "=") {
-    displayOnScreen.textContent = eval(joinedCalculation);
-  }
-  //add back btn
-  else if (value === "<") {
-    calculation.pop(value);
-    joinedCalculation = calculation.join("");
-    displayOnScreen.textContent = joinedCalculation;
-  } else {
-    calculation.push(value);
-    console.log(calculation);
-    joinedCalculation = calculation.join("");
-    displayOnScreen.textContent = joinedCalculation;
+  let value = btn.id;
+  displayMainScreen.textContent = value;
+  try {
+    // ---------Clear All
+    if (value === "CE") {
+      displayMainScreen.textContent = " ";
+      displayPrevScreen.textContent = " ";
+      calculation = [];
+    }
+    // ---------sum of calculation
+    else if (value === "=") {
+      let answer = eval(joinedCalculation);
+      displayMainScreen.textContent = answer;
+      calculation = [answer];
+      displayPrevScreen.textContent = joinedCalculation;
+    }
+    // ----------backspace
+    else if (value === "<") {
+      calculation.pop(value);
+      joinedCalculation = calculation.join("");
+      displayMainScreen.textContent = joinedCalculation;
+    }
+    // ----------double period error
+    // but it prevent another decimal nr !!!!!!!!!!!!!!!! darn!
+    // else if (value === "." && calculation.includes(".")) {
+    //   joinedCalculation = calculation.join("");
+    //   displayMainScreen.textContent = joinedCalculation;
+    //   return
+    // }
+    // ----------calculate percentage
+    else if (value === "%") {
+      calculation.push(value);
+      joinedCalculation = calculation.join("");
+      displayMainScreen.textContent = joinedCalculation;
+    }
+    // ----------add up all numbers/btns pressed
+    else {
+      calculation.push(value);
+      joinedCalculation = calculation.join("");
+      displayMainScreen.textContent = joinedCalculation;
+    }
+  } catch (error) {
+    displayMainScreen.textContent = "Error";
   }
 }
 
