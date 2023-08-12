@@ -1,29 +1,43 @@
 * {
   padding: 0;
   margin: 0;
-  background-color: lightgray;
+  box-sizing: border-box;
+  background-color: rgb(241, 241, 241);
+}
+
+:root {
+  --background-clr: rgb(97, 97, 97);
+}
+
+h3 {
+  display: grid;
+  padding-top: 2rem;
+  justify-content: center;
 }
 
 h1 {
   display: grid;
   justify-content: center;
   font-size: 5rem;
-  padding: 2rem;
+  padding: 0rem 2rem 2rem 2rem;
+  color: #0197f6;
 }
 
 .container {
   display: grid;
   justify-content: center;
+  width: 100vw;
 }
 
 .calculator {
   display: grid;
   justify-items: center;
   grid-template-rows: 1fr 3fr;
-  border: 2px solid;
+  /* border: 2px solid; */
   height: auto;
-  width: auto;
+  width: 100vw;
   align-items: center;
+  gap: 5px;
 }
 
 .screen-container {
@@ -32,17 +46,18 @@ h1 {
   grid-template-rows: 1fr 2fr;
   border: 2px solid;
   height: 100%;
-  width: 396px;
-  max-width: 396px;
+  width: 100%;
+  max-width: 415px;
   border: 2px solid;
 }
 
 .previous-display {
-  background-color: rgb(77, 77, 77);
+  background-color: var(--background-clr);
   color: white;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 1rem;
@@ -51,8 +66,8 @@ h1 {
 
 .current-display {
   color: white;
-  background-color: rgb(77, 77, 77);
-  max-width: 396px;
+  background-color: var(--background-clr);
+  /* width: 415px; */
   overflow-wrap: break-word;
   overflow-wrap: normal;
   display: flex;
@@ -67,24 +82,28 @@ h1 {
   display: grid;
   width: 100%;
   height: 100%;
+  gap: 5px;
   grid-template-columns: repeat(4, 100px);
   grid-template-rows: repeat(5, 100px);
+  justify-content: center;
 }
 
 .btn {
   color: #000000;
-  background-color: rgb(77, 77, 77);
+  background-color: var(--background-clr);
   font-size: 2rem;
+  box-shadow: 1px 1px 0 0;
+  border-radius: 5px;
 }
 
-.btn i:hover{
+.btn i:hover {
   background-color: grey;
   color: black;
 }
 
 .btn i {
   display: grid;
-  background-color: rgb(77, 77, 77);
+  background-color: var(--background-clr);
   color: white;
   width: 100%;
   height: 100%;
@@ -103,6 +122,121 @@ h1 {
   color: black;
 }
 
-.equals{
-  width: 200px;
+.equals {
+  width: 205px;
+}
+
+@media screen and (max-width: 450px) {
+  h3 {
+    justify-content: center;
+    display: grid;
+    font-size: 12px;
+    padding-top: 20px;
+  }
+
+  h1 {
+    font-size: 35px;
+    padding: 0px 20px 20px 20px;
+    display: grid;
+    justify-content: center;
+    width: 100vw;
+    color: #0197f6;
+  }
+
+  .container {
+    display: grid;
+    justify-content: center;
+    width: 100vw;
+  }
+
+  .calculator {
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 1fr 3fr;
+    height: 560px;
+    width: 100vw;
+    align-items: start;
+  }
+
+  .screen-container {
+    display: grid;
+    width: 95vw;
+    height: 100%;
+    justify-self: center;
+    grid-template-rows: 1fr 2fr;
+    border: 2px solid;
+  }
+
+  .previous-display {
+    display: flex;
+    background-color: var(--background-clr);
+    color: white;
+    justify-content: flex-end;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1rem;
+    border-bottom: 2px solid gray;
+  }
+
+  .current-display {
+    display: flex;
+    color: white;
+    background-color: var(--background-clr);
+    overflow-wrap: break-word;
+    overflow-wrap: normal;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 3rem;
+    padding: 1rem;
+    border-bottom: 2px solid black;
+  }
+
+  .buttons {
+    display: grid;
+    width: 100%;
+    gap: 3px;
+    height: 400px;
+    grid-template-columns: repeat(4, 23%);
+    grid-template-rows: repeat(5, 20%);
+    justify-content: center;
+  }
+
+  .btn {
+    color: #000000;
+    background-color: var(--background-clr);
+    font-size: 1.5rem;
+    box-shadow: 1px 1px 0 0;
+    border-radius: 5px;
+  }
+
+  .btn i:hover {
+    background-color: rgb(153, 153, 153);
+    color: black;
+  }
+
+  .btn i {
+    display: grid;
+    background-color: var(--background-clr);
+    color: white;
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    place-items: center;
+    background: transparent;
+  }
+
+  .operator i {
+    color: rgb(177, 177, 177);
+    background: transparent;
+  }
+
+  .operator i:hover {
+    background-color: grey;
+    color: black;
+  }
+
+  .equals {
+    width: 203%;
+  }
 }

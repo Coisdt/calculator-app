@@ -31,10 +31,11 @@ function calculate(btn) {
     }
     // ----------double period error
     // but it prevent another decimal nr !!!!!!!!!!!!!!!! darn!
-    // else if (value === "." && calculation.includes(".")) {
-    //   joinedCalculation = calculation.join("");
-    //   displayMainScreen.textContent = joinedCalculation;
-    //   return
+    // else if (calculation.includes(".")) {
+    // joinedCalculation = calculation.join("");
+    // displayMainScreen.textContent = joinedCalculation;
+    // return
+    //   console.log('yes');
     // }
     // ----------calculate percentage
     else if (value === "%") {
